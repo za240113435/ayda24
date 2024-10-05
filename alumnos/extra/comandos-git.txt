@@ -13,3 +13,9 @@
   git config --global alias.lol log --graph --decorate --pretty=oneline --abbrev-commit
 
   git push -u REMOTO RAMA
+
+  git checkout main
+
+  git pull
+
+  git remote set-url --push git@github.com:SU_REPO/ayda24.git
