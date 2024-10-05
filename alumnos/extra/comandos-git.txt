@@ -1,0 +1,15 @@
+  git branch NOMBRE
+  git checkout NOMBRE
+
+  git checkout -b NOMBRE
+
+  git status
+
+  git add ARCHIVO
+  git commit
+
+  git commit -m "el mensaje que quieres sin notepad"
+
+  git config --global alias.lol log --graph --decorate --pretty=oneline --abbrev-commit
+
+  git push -u REMOTO RAMA
