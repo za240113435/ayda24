@@ -3,7 +3,7 @@
 from num2words import num2words
 
 # Número que quieres convertir
-numero = 9123456789
+numero = int(input("Ingresa un numero: "))
 
 # Convertir el número a palabras en español
 numero_en_letras = num2words(numero, lang='es')
