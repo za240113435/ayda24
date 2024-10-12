@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 def numero_a_letra(n: int) -> str:
     unidades = ["cero", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete",
                 "ocho", "nueve"]
