@@ -1,14 +1,51 @@
 #!/usr/bin/env python3
 def numero_a_letra(n: int) -> str:
-    unidades = ["cero", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete",
-                "ocho", "nueve"]
-    diez = ["diez", "once", "doce", "trece", "catorce", "quince", "dieciséis",
-            "diecisiete", "dieciocho", "diecinueve"]
-    decenas = ["", "veinte", "treinta", "cuarenta", "cincuenta", "sesenta",
-               "setenta", "ochenta", "noventa"]
-    centenas = ["ciento", "doscientos", "trescientos", "cuatrocientos",
-                "quinientos", "seiscientos", "setecientos", "ochocientos",
-                "novecientos"]
+    unidades = [
+        "cero",
+        "uno",
+        "dos",
+        "tres",
+        "cuatro",
+        "cinco",
+        "seis",
+        "siete",
+        "ocho",
+        "nueve",
+    ]
+    diez = [
+        "diez",
+        "once",
+        "doce",
+        "trece",
+        "catorce",
+        "quince",
+        "dieciséis",
+        "diecisiete",
+        "dieciocho",
+        "diecinueve",
+    ]
+    decenas = [
+        "",
+        "veinte",
+        "treinta",
+        "cuarenta",
+        "cincuenta",
+        "sesenta",
+        "setenta",
+        "ochenta",
+        "noventa",
+    ]
+    centenas = [
+        "ciento",
+        "doscientos",
+        "trescientos",
+        "cuatrocientos",
+        "quinientos",
+        "seiscientos",
+        "setecientos",
+        "ochocientos",
+        "novecientos",
+    ]
 
     if n < 10:
         return unidades[n]
@@ -66,7 +103,7 @@ def numero_a_letra(n: int) -> str:
         return centenas[num_centenas - 1] + " " + numero_a_letra(resto)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     numero = int(input("Introduce un número: "))
     letra = numero_a_letra(numero)
     print(letra)
