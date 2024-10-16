@@ -35,6 +35,14 @@ SEGUNDOS = (
     "noventa",
 )
 
+TERCEROS = (
+    "",
+    "ciento",
+    "quinientos",
+    "setecientos",
+    "novecientos",
+)
+
 
 def numero_a_letra(numero):
     """Función que convierte el número a letras"""
@@ -55,6 +63,24 @@ def numero_a_letra(numero):
             en_letra = SEGUNDOS[int(numero[0])] + PRIMEROS[int(numero[1])]
         else:
             en_letra = SEGUNDOS[int(numero[0])] + " y " + PRIMEROS[int(numero[1])]
+    elif tamanio == 3:
+        if numero == "100":
+            en_letra = TERCEROS[int(numero[0])][:-2]
+        elif numero[0] == "1":
+            en_letra = TERCEROS[int(numero[0])] + " " + numero_a_letra(numero[1:])
+        elif numero[0] == "5":
+            en_letra = TERCEROS[2] + " " + numero_a_letra(numero[1:])
+        elif numero[0] == "7":
+            en_letra = TERCEROS[3] + " " + numero_a_letra(numero[1:])
+        elif numero[0] == "9":
+            en_letra = TERCEROS[4] + " " + numero_a_letra(numero[1:])
+        else:
+            en_letra = (
+                PRIMEROS[int(numero[0])]
+                + TERCEROS[1]
+                + "s "
+                + numero_a_letra(numero[1:])
+            )
 
     return en_letra
 
