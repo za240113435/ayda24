@@ -43,6 +43,11 @@ TERCEROS = (
     "novecientos",
 )
 
+CUARTOS = (
+    "mil",
+    "millón",
+)
+
 
 def numero_a_letra(numero):
     """Función que convierte el número a letras"""
@@ -53,7 +58,7 @@ def numero_a_letra(numero):
     if tamanio == 1:
         en_letra = PRIMEROS[int(numero)]
     elif tamanio == 2:
-        if numero[0] == "1" and numero[1] < "6":
+        if numero[0] in ("0", "1") and numero[1] < "6":
             en_letra = PRIMEROS[int(numero)]
         elif numero == "20":
             en_letra = SEGUNDOS[int(numero[0])][:-1] + "e"
@@ -66,6 +71,8 @@ def numero_a_letra(numero):
     elif tamanio == 3:
         if numero == "100":
             en_letra = TERCEROS[int(numero[0])][:-2]
+        elif numero[0] == "0":
+            en_letra = numero_a_letra(numero[1:])
         elif numero[0] == "1":
             en_letra = TERCEROS[int(numero[0])] + " " + numero_a_letra(numero[1:])
         elif numero[0] == "5":
@@ -81,6 +88,30 @@ def numero_a_letra(numero):
                 + "s "
                 + numero_a_letra(numero[1:])
             )
+    elif tamanio < 7:
+        primeros = numero[-3:]
+        segundos = numero[:-3]
+
+        if len(segundos) == 1 and segundos[0] == "1":
+            en_letra = CUARTOS[0]
+        else:
+            en_letra = numero_a_letra(segundos) + " " + CUARTOS[0]
+
+        # verificamos que no sean puros ceros
+        if int(primeros):
+            en_letra += " " + numero_a_letra(primeros)
+    elif tamanio < 10:
+        primeros = numero[-6:]
+        segundos = numero[:-6]
+
+        if len(segundos) == 1 and segundos[0] == "1":
+            en_letra = "un " + CUARTOS[1]
+        else:
+            en_letra = numero_a_letra(segundos) + " " + CUARTOS[1][:-2] + "ones"
+
+        # verificamos que no sean puros ceros
+        if int(primeros):
+            en_letra += " " + numero_a_letra(primeros)
 
     return en_letra
 
