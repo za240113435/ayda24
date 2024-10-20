@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 def numero_a_palabras(n): # AGREGAMOS LOS NOMBRES DE CADA NUMERO EN TEXTO 
     unidades = ["", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"]
     especiales = ["diez", "once", "doce", "trece", "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve"] 
