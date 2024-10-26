@@ -1,13 +1,49 @@
 def convertir_a_letras(n):
     unidades = (
-        "", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve",
-        "diez", "once", "doce", "trece", "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve"
+        "",
+        "uno",
+        "dos",
+        "tres",
+        "cuatro",
+        "cinco",
+        "seis",
+        "siete",
+        "ocho",
+        "nueve",
+        "diez",
+        "once",
+        "doce",
+        "trece",
+        "catorce",
+        "quince",
+        "dieciséis",
+        "diecisiete",
+        "dieciocho",
+        "diecinueve",
     )
     decenas = (
-        "", "", "veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"
+        "",
+        "",
+        "veinte",
+        "treinta",
+        "cuarenta",
+        "cincuenta",
+        "sesenta",
+        "setenta",
+        "ochenta",
+        "noventa",
     )
     centenas = (
-        "", "cien", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"
+        "",
+        "cien",
+        "doscientos",
+        "trescientos",
+        "cuatrocientos",
+        "quinientos",
+        "seiscientos",
+        "setecientos",
+        "ochocientos",
+        "novecientos",
     )
 
     def convertir_menor_1000(n):
@@ -31,11 +67,11 @@ def convertir_a_letras(n):
             return "cero"
         if n == 1_000_000_000:
             return "un billón"
-        
+
         partes = []
         miles = ["", "mil", "millón", "mil millones"]
         i = 0
-        
+
         while n > 0:
             parte = n % 1000
             if parte != 0:
@@ -47,10 +83,11 @@ def convertir_a_letras(n):
                     partes.append(convertir_menor_1000(parte) + " " + miles[i])
             n //= 1000
             i += 1
-        
-        return ' '.join(reversed(partes)).strip()
+
+        return " ".join(reversed(partes)).strip()
 
     return convertir_grande(n)
+
 
 # Ejemplo de uso:
 numero = 123454
