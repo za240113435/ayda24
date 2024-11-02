@@ -20,7 +20,6 @@ def insercion(lista):
         lista[j + 1] = key
     return lista
 
-
 def es_valido(lista):
     tamanio = len(lista)
     esta_ordenado = False
