@@ -11,6 +11,14 @@ CANTIDAD = 10
 
 
 def burbuja(lista):
+    tamano = len(lista)
+    # Pasar por toda la lista
+    for i in range(tamano):
+        # Últimos elementos ya están en su lugar
+        for j in range(0, tamano-i-1):
+            # Intercambiar si el elemento encontrado es mayor que el siguiente
+            if lista[j] > lista[j+1]:
+                lista[j], lista[j+1] = lista[j+1], lista[j]
     return lista
 
 
