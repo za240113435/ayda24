@@ -11,6 +11,13 @@ CANTIDAD = 10
 
 
 def insercion(lista):
+    for i in range(1, len(lista)):
+        key = lista[i]
+        j = i - 1
+        while j >= 0 and key < lista[j]:
+            lista[j + 1] = lista[j]
+            j -= 1
+        lista[j + 1] = key
     return lista
 
 
@@ -28,9 +35,9 @@ def es_valido(lista):
 
 
 def main():
-    desordenado = [random.randint(1, 100) for _ in range(CANTIDAD)]  # nosec B311
+    # desordenado = [random.randint(1, 100) for _ in range(CANTIDAD)]  # nosec B311
     # Este si esta ordenado
-    # desordenado = [ x for x in range(CANTIDAD) ]
+    desordenado = [ x for x in range(CANTIDAD) ]
 
     # Algoritmo de ordenamiento
     ordenado = insercion(desordenado)
