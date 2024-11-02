@@ -23,7 +23,7 @@ def es_valido(lista):
     esta_ordenado = False
 
     for pos in range(tamanio - 1):
-        if lista[pos] >= lista[pos + 1]:
+        if lista[pos] > lista[pos + 1]:
             break
     else:
         esta_ordenado = True
