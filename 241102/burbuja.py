@@ -6,6 +6,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import random
+import time
 
 CANTIDAD = 10
 
@@ -19,7 +20,7 @@ def es_valido(lista):
     esta_ordenado = False
 
     for pos in range(tamanio - 1):
-        if lista[pos] >= lista[pos + 1]:
+        if lista[pos] > lista[pos + 1]:
             break
     else:
         esta_ordenado = True
@@ -33,7 +34,13 @@ def main():
     # desordenado = [ x for x in range(CANTIDAD) ]
 
     # Algoritmo de ordenamiento
+    tiempo_inicial = time.time()
     ordenado = burbuja(desordenado)
+    tiempo_final = time.time()
+
+    tiempo_total = tiempo_final - tiempo_inicial
+
+    print("Se tardo un total de", tiempo_total, "segundos")
 
     if not es_valido(ordenado):
         print("No esta ordenado")
