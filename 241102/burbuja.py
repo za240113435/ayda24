@@ -33,8 +33,8 @@ def main():
     # Este si esta ordenado
     # desordenado = [ x for x in range(CANTIDAD) ]
 
-    # Algoritmo de ordenamiento
     tiempo_inicial = time.time()
+    # Algoritmo de ordenamiento
     ordenado = burbuja(desordenado)
     tiempo_final = time.time()
 
