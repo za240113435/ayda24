@@ -35,7 +35,7 @@ def main():
     # Este si esta ordenado
     # desordenado = [ x for x in range(CANTIDAD) ]
 
-    # Algoritmo de ordenamiento
+    # Algoritmo de ordenamiento codigo
     ordenado = burbuja(desordenado)
 
     if not es_valido(ordenado):
