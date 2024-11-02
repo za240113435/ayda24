@@ -9,10 +9,14 @@ import random
 
 CANTIDAD = 10
 
-
 def burbuja(lista):
+    tamanio = len(lista)
+    for i in range(tamanio):
+        for j in range(0, tamanio - i - 1):
+            if lista[j] > lista[j + 1]:
+                # Intercambia los elementos
+                lista[j], lista[j + 1] = lista[j + 1], lista[j]
     return lista
-
 
 def es_valido(lista):
     tamanio = len(lista)
@@ -26,7 +30,6 @@ def es_valido(lista):
 
     return esta_ordenado
 
-
 def main():
     desordenado = [random.randint(1, 100) for _ in range(CANTIDAD)]  # nosec B311
     # Este si esta ordenado
@@ -39,7 +42,6 @@ def main():
         print("No esta ordenado")
     else:
         print("La lista SI esta ordenada")
-
 
 if __name__ == "__main__":
     main()
