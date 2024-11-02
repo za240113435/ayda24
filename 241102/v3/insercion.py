@@ -11,6 +11,19 @@ CANTIDAD = 10
 
 
 def insercion(lista):
+    # Recorre desde el segundo elemento hasta el final
+    for i in range(1, len(lista)):
+        key = lista[i]  # Elemento a ser colocado en la posición correcta
+        j = i - 1
+
+        # Mueve los elementos de lista[0...i-1] que son mayores que la clave un lugar adelante
+        while j >= 0 and key < lista[j]:
+            lista[j + 1] = lista[j]
+            j -= 1
+
+        # Coloca la clave en su posición correcta
+        lista[j + 1] = key
+
     return lista
 
 
