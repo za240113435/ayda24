@@ -11,8 +11,16 @@ CANTIDAD = 10
 
 
 def seleccion(lista):
+       # Algoritmo de ordenamiento por selección
+    for i in range(len(lista)):
+        # Encontrar el índice del elemento más pequeño en la parte no ordenada
+        min_idx = i
+        for j in range(i + 1, len(lista)):
+            if lista[j] < lista[min_idx]:
+                min_idx = j
+        # Intercambiar el elemento encontrado con el primero de la parte no ordenada
+        lista[i], lista[min_idx] = lista[min_idx], lista[i]
     return lista
-
 
 def es_valido(lista):
     tamanio = len(lista)
@@ -29,7 +37,8 @@ def es_valido(lista):
 
 def main():
     desordenado = [random.randint(1, 100) for _ in range(CANTIDAD)]  # nosec B311
-    # Este si esta ordenado
+   
+   # Este si esta ordenado
     # desordenado = [ x for x in range(CANTIDAD) ]
 
     # Algoritmo de ordenamiento

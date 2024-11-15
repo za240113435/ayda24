@@ -11,6 +11,20 @@ CANTIDAD = 10
 
 
 def gnome(lista):
+    # Inicializar el índice en la primera posición de la lista
+    index = 0
+
+    # Recorrer la lista mientras el índice esté dentro de sus límites
+    while index < len(lista):
+        # Avanzar si estamos en el primer elemento o el actual es mayor o igual al anterior
+        if index == 0 or lista[index] >= lista[index - 1]:
+            # Incrementar el índice para pasar al siguiente elemento
+            index += 1
+        else:
+            # Intercambiar elementos si el actual es menor que el anterior
+            lista[index], lista[index - 1] = lista[index - 1], lista[index]
+            # Retroceder en el índice para verificar el orden en los elementos anteriores
+            index -= 1
     return lista
 
 
