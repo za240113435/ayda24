@@ -5,17 +5,26 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-import random
 import time
 
-CANTIDAD = 10
+CANTIDAD = 1000
 
+def burbuja(lista):  # T(n) =  9n(n-1) + 2 ->  9n^2 - 9n + 2 => n^2
+    # T(10,000) = 3s -> 9(10,000)^2 + 9(10,000) + 2 ->  n^2
+    # T(100,000) =  T(10,000 x 10) -> 3s x 10^2 -> 3 x 100 -> 300s
+    tamanio = len(lista)  # 1
 
-def burbuja(lista):
-    return lista
+    for i in range(tamanio):  # n -> 9n(n-1)
+        for j in range(tamanio - i - 1):  # n - i - 1  -> 9(n-1)
+            if lista[j] > lista[j + 1]:  # 3 + 6 = 9
+                # Intercambia los elementos
+                lista[j], lista[j + 1] = lista[j + 1], lista[j]  # 6
+
+    return lista  # 1
 
 
 def es_valido(lista):
+    print(lista)
     tamanio = len(lista)
     esta_ordenado = False
 
@@ -29,9 +38,15 @@ def es_valido(lista):
 
 
 def main():
-    desordenado = [random.randint(1, 100) for _ in range(CANTIDAD)]  # nosec B311
+    # Caso promedio
+    # desordenado = [random.randint(1, 100) for _ in range(CANTIDAD)]  # nosec B311
+    # Mejor caso
     # Este si esta ordenado
-    # desordenado = [ x for x in range(CANTIDAD) ]
+    # desordenado = [x for x in range(CANTIDAD)]  # nosec B311
+    # Peor caso
+    # Este esta ordenado a la inversa
+    # desordenado = [CANTIDAD-x for x in range(CANTIDAD)]
+    desordenado = [x for x in range(CANTIDAD, 0, -1)]
 
     tiempo_inicial = time.time()
     # Algoritmo de ordenamiento
