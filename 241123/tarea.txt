@@ -1,0 +1,6 @@
+Hacer los algoritmos de:
+1. busqueda lineal  -> n
+2. busqueda binaria -> logn
+
+
+En un archivo los 2 algoritmos con sus iniciales
