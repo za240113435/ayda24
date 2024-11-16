@@ -1,0 +1,8 @@
+Su nombre: Pablo Fletes,,,,,
+Nombre del Algoritmo,1_000,10_000,100_000,1_000_000,10_000_000
+Burbuja,0.08,7.67,No,No,No
+Inserción,0.05,3.25,No,No,No
+Selección,0.04,3.03,No,No,No
+Gnome,0.13,11.47,No,No,No
+Heap,0,0.06,0.82,8.87,128.8
+Quicksort,0,0.03,0.3,4.51,75.53
