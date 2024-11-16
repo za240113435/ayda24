@@ -1,45 +1,42 @@
-#!/usr/bin/env python3
-# c-basic-offset: 4; tab-width: 8; indent-tabs-mode: nil
-# vi: set shiftwidth=4 tabstop=8 expandtab:
-# :indentSize=4:tabSize=8:noTabs=true:
-#
-# SPDX-License-Identifier: GPL-3.0-or-later
-
 import random
 
 CANTIDAD = 10
 
+def heapify(arr, n, i):
+    # ... implementación de heapify (igual a la anterior)
 
-def heapsort(lista):
-    return lista
+def heapSort(arr):
+    n = len(arr)
+    # Crear una copia de la lista para no modificar la original
+    arr_copy = arr.copy()
 
+    # Construir un max-heap
+    for i in range(n//2 - 1, -1, -1):
+        heapify(arr_copy, n, i)
+
+    # Extraer elementos uno por uno
+    for i in range(n-1, 0, -1):
+        arr_copy[i], arr_copy[0] = arr_copy[0], arr_copy[i]
+        heapify(arr_copy, i, 0)
+
+    return arr_copy
 
 def es_valido(lista):
-    tamanio = len(lista)
-    esta_ordenado = False
-
-    for pos in range(tamanio - 1):
-        if lista[pos] >= lista[pos + 1]:
-            break
-    else:
-        esta_ordenado = True
-
-    return esta_ordenado
-
+    # Verificación más eficiente: comparar cada elemento con el siguiente
+    for i in range(len(lista) - 1):
+        if lista[i] > lista[i+1]:
+            return False
+    return True
 
 def main():
-    desordenado = [random.randint(1, 100) for _ in range(CANTIDAD)]  # nosec B311
-    # Este si esta ordenado
-    # desordenado = [ x for x in range(CANTIDAD) ]
-
-    # Algoritmo de ordenamiento
-    ordenado = heapsort(desordenado)
+    desordenado = [random.randint(1, 100) for _ in range(CANTIDAD)]
+    ordenado = heapSort(desordenado)
 
     if not es_valido(ordenado):
-        print("No esta ordenado")
+        print("No está ordenada")
     else:
-        print("La lista SI esta ordenada")
-
+        print("La lista SÍ está ordenada")
+        print(ordenado)  # Imprimir la lista ordenada
 
 if __name__ == "__main__":
     main()

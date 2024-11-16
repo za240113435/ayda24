@@ -11,6 +11,13 @@ CANTIDAD = 10
 
 
 def gnome(lista):
+    i = 0
+    while i < len(lista):
+        if i == 0 or lista[i] >= lista[i - 1]:
+            i += 1
+        else:
+            lista[i], lista[i - 1] = lista[i - 1], lista[i]
+            i -= 1
     return lista
 
 
@@ -39,6 +46,7 @@ def main():
         print("No esta ordenado")
     else:
         print("La lista SI esta ordenada")
+    print("Lista ordenada:", ordenado)
 
 
 if __name__ == "__main__":
