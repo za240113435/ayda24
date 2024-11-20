@@ -1,0 +1,46 @@
+1. busqueda lineal  -> n
+
+def busqueda_lineal(lista, objetivo):
+    for indice in range(len(lista)):
+        if lista[indice] == objetivo:
+            return indice  # Devuelve la posición del elemento si se encuentra
+    return -1  # Devuelve -1 si el elemento no se encuentra
+
+# Ejemplo de uso
+elementos = [10, 20, 30, 40, 50]
+buscar = 30
+
+resultado = busqueda_lineal(elementos, buscar)
+if resultado != -1:
+    print(f"Elemento {buscar} encontrado en la posición {resultado}.")
+else:
+    print(f"Elemento {buscar} no encontrado en la lista.")
+
+
+2. busqueda binaria -> logn
+
+def busqueda_binaria(lista, objetivo):
+    izquierda = 0
+    derecha = len(lista) - 1
+
+    while izquierda <= derecha:
+        medio = (izquierda + derecha) // 2
+        if lista[medio] == objetivo:
+            return medio  # Devuelve la posición del elemento si se encuentra
+        elif lista[medio] < objetivo:
+            izquierda = medio + 1
+        else:
+            derecha = medio - 1
+
+    return -1  # Devuelve -1 si el elemento no se encuentra
+
+# Ejemplo de uso
+elementos = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+buscar = 40
+
+resultado = busqueda_binaria(elementos, buscar)
+if resultado != -1:
+    print(f"Elemento {buscar} encontrado en la posición {resultado}.")
+else:
+    print(f"Elemento {buscar} no encontrado en la lista.")
+
