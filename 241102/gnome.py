@@ -8,51 +8,45 @@
 import random
 import time
 
-CANTIDAD = 1000
+CANTIDAD = 10
+
 
 def gnome(lista):
-    index = 0
-    while index < len(lista):
-        if index == 0:
-            index += 1
-        if lista[index] >= lista[index - 1]:
-            index += 1
-        else:
-            # Intercambiar los elementos
-            lista[index], lista[index - 1] = lista[index - 1], lista[index]
-            index -= 1
     return lista
 
+
 def es_valido(lista):
-    print(lista)
     tamanio = len(lista)
     esta_ordenado = False
 
     for pos in range(tamanio - 1):
-        if lista[pos] > lista[pos + 1]:  # Cambié >= a > para mayor claridad
+        if lista[pos] > lista[pos + 1]:
             break
     else:
         esta_ordenado = True
 
     return esta_ordenado
 
+
 def main():
-    desordenado = [random.randint(1, 100) for _ in range(CANTIDAD)]
+    desordenado = [random.randint(1, 100) for _ in range(CANTIDAD)]  # nosec B311
+    # Este si esta ordenado
+    # desordenado = [ x for x in range(CANTIDAD) ]
 
     tiempo_inicial = time.time()
-    tiempo_final = time.time()
-    tiempo_total = tiempo_final - tiempo_inicial
     # Algoritmo de ordenamiento
     ordenado = gnome(desordenado)
+    tiempo_final = time.time()
+
+    tiempo_total = tiempo_final - tiempo_inicial
+
     print("Se tardo un total de", tiempo_total, "segundos")
 
-    # print("Lista original:", desordenado)
-    # print("Lista ordenada:", ordenado)
-
     if not es_valido(ordenado):
-        print("No está ordenado")
+        print("No esta ordenado")
     else:
-        print("La lista SÍ está ordenada")
+        print("La lista SI esta ordenada")
+
 
 if __name__ == "__main__":
     main()

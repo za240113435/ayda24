@@ -8,28 +8,30 @@
 import random
 import time
 
-CANTIDAD = 10000
+CANTIDAD = 10
+
 
 def seleccion(lista):
-    n = len(lista)
-    for i in range(n):
-        indice_minimo = i
-        for j in range(i + 1, n):
-            if lista[j] < lista[indice_minimo]:
-                indice_minimo = j
-        lista[i], lista[indice_minimo] = lista[indice_minimo], lista[i]
     return lista
 
+
 def es_valido(lista):
-    print(lista)
     tamanio = len(lista)
+    esta_ordenado = False
+
     for pos in range(tamanio - 1):
-        if lista[pos] > lista[pos + 1]:  # Aquí verificamos si algún elemento es mayor al siguiente
-            return False  # Retorna False inmediatamente si la lista no está en orden ascendente
-    return True  # Retorna True si todos los elementos están en orden
+        if lista[pos] > lista[pos + 1]:
+            break
+    else:
+        esta_ordenado = True
+
+    return esta_ordenado
+
 
 def main():
     desordenado = [random.randint(1, 100) for _ in range(CANTIDAD)]  # nosec B311
+    # Este si esta ordenado
+    # desordenado = [ x for x in range(CANTIDAD) ]
 
     tiempo_inicial = time.time()
     # Algoritmo de ordenamiento
@@ -37,14 +39,14 @@ def main():
     tiempo_final = time.time()
 
     tiempo_total = tiempo_final - tiempo_inicial
-    
-    print("Se tardó un total de", tiempo_total, "segundos")
+
+    print("Se tardo un total de", tiempo_total, "segundos")
 
     if not es_valido(ordenado):
-        print("No está ordenado")
+        print("No esta ordenado")
     else:
-        print("La lista SÍ está ordenada")
+        print("La lista SI esta ordenada")
+
 
 if __name__ == "__main__":
     main()
-

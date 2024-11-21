@@ -8,26 +8,14 @@
 import random
 import time
 
-CANTIDAD = 10000
+CANTIDAD = 10
 
 
 def insercion(lista):
-    # Traverse through 1 to len(lista)
-    for i in range(1, len(lista)):
-        key = lista[i]  # Element to be compared
-        j = i - 1
-        
-        # Move elements of lista[0..i-1] that are greater than key
-        # to one position ahead of their current position
-        while j >= 0 and key < lista[j]:
-            lista[j + 1] = lista[j]
-            j -= 1
-        lista[j + 1] = key  # Place the key in its correct position
     return lista
 
 
 def es_valido(lista):
-    print(lista)
     tamanio = len(lista)
     esta_ordenado = False
 
@@ -45,18 +33,14 @@ def main():
     # Este si esta ordenado
     # desordenado = [ x for x in range(CANTIDAD) ]
 
-    # Algoritmo de ordenamiento
-    ordenado = insercion(desordenado)
-
     tiempo_inicial = time.time()
     # Algoritmo de ordenamiento
+    ordenado = insercion(desordenado)
     tiempo_final = time.time()
 
     tiempo_total = tiempo_final - tiempo_inicial
 
     print("Se tardo un total de", tiempo_total, "segundos")
-
-
 
     if not es_valido(ordenado):
         print("No esta ordenado")

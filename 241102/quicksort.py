@@ -8,27 +8,16 @@
 import random
 import time
 
-CANTIDAD = 10_000_000
+CANTIDAD = 10
+
 
 def quicksort(lista):
-    if len(lista) <= 1:  # Caso base: lista de 0 o 1 elemento ya está ordenada
-        return lista
-    else:
-        # Selecciona el pivote
-        pivote = lista[len(lista) // 2]
+    return lista
 
-        # Particiona la lista en tres partes
-        menores = [x for x in lista if x < pivote]
-        iguales = [x for x in lista if x == pivote]
-        mayores = [x for x in lista if x > pivote]
-
-        # Combina las partes ordenadas
-        return quicksort(menores) + iguales + quicksort(mayores)
 
 def es_valido(lista):
-    print(lista)
     tamanio = len(lista)
-    esta_ordenado = True
+    esta_ordenado = False
 
     for pos in range(tamanio - 1):
         if lista[pos] > lista[pos + 1]:
