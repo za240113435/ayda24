@@ -1,8 +1,8 @@
-Su nombre,Jair de Jesus Llamas Cisneros,,,,
+Su nombre,,,,,,
 Nombre del Algoritmo,1_000,10_000,100_000,1_000_000,10_000_000
-Burbuja,0.0054724,3.89,No,No,No
-Inserción,0.001596,1.94,No,No,No
-Selección,0.01454,1.63,No,No,No
-Gnome,0.0705,7.88,No,No,No
-Heap,0.00243,0.0265,,,
-Quicksort,6 seg,,,,
+Burbuja,,,No,No,No
+Inserción,,,No,No,No
+Selección,,,No,No,No
+Gnome,,,No,No,No
+Heap,,,,,
+Quicksort,,,,,
