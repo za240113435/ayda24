@@ -1,0 +1,56 @@
+def busqueda_lineal(lista, objetivo):
+    """
+    Busca un elemento en una lista usando búsqueda lineal.
+    
+    Parámetros:
+        lista (list): La lista donde buscar.
+        objetivo: El elemento a buscar.
+    
+    Retorna:
+        int: El índice del elemento si se encuentra, -1 si no.
+    """
+    for i in range(len(lista)):
+        if lista[i] == objetivo:
+            return i  # Retorna el índice si lo encuentra
+    return -1  # Retorna -1 si no lo encuentra
+
+"""
+Ejemplo de uso
+lista = [4, 2, 9, 7, 5]
+objetivo = 7
+indice = busqueda_lineal(lista, objetivo)
+print(f"Índice del {objetivo}: {indice}")  # Salida: Índice del 7: 3
+"""
+
+
+def busqueda_binaria(lista, objetivo):
+    """
+    Busca un elemento en una lista ordenada usando búsqueda binaria.
+    
+    Parámetros:
+        lista (list): Lista ordenada donde buscar.
+        objetivo: El elemento a buscar.
+    
+    Retorna:
+        int: El índice del elemento si se encuentra, -1 si no.
+    """
+    inicio = 0
+    fin = len(lista) - 1
+    
+    while inicio <= fin:
+        medio = (inicio + fin) // 2
+        if lista[medio] == objetivo:
+            return medio  # Retorna el índice si lo encuentra
+        elif lista[medio] < objetivo:
+            inicio = medio + 1  # Buscar en la mitad derecha
+        else:
+            fin = medio - 1  # Buscar en la mitad izquierda
+    
+    return -1  # Retorna -1 si no lo encuentra
+
+"""
+lista = [1, 3, 5, 7, 9]
+objetivo = 7
+indice = busqueda_binaria(lista, objetivo)
+print(f"Índice del {objetivo}: {indice}")  # Salida: Índice del 7: 3
+"""
