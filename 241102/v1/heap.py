@@ -29,6 +29,8 @@ def heapify(arr, n, i):
     if largest != i:
         arr[i], arr[largest] = arr[largest], arr[i]  # Intercambia
         heapify(arr, n, largest)  # Llama recursivamente para el subárbol afectado
+        
+    return arr_copy
 
 def heap_sort(arr):
     n = len(arr)
